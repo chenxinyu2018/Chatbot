@@ -1,0 +1,21 @@
+.chat-bubble {
+  max-width: 290px;
+  margin-left: 10px;
+  margin-right: 0;
+  background-color: whitesmoke; 
+  color: #444;
+  padding: 10px 10px;
+  border-radius: 0 10px 10px 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  word-wrap: break-word;
+  line-height: 150%;
+}
+
+.is-chatbot {
+  margin-left: 0px;
+  margin-right: 10px;
+  border-radius: 10px 0 10px 10px;
+  background-color: rgb(74, 149, 191);
+  color: #fff;
+}
