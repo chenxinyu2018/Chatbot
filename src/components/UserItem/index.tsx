@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UserIcon from '../../../assets/icon/user';
-import './index.css';
+import './index.scss';
 import ChatBubble from '../ChatBubble';
 import { IChatHistory } from '../../../types/index';
 import CurrentTime from '../CurrentTime';

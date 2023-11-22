@@ -1,10 +1,9 @@
 .chat-container {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-}
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
 
-.chat-button {
+  .chat-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,14 +15,19 @@
     cursor: pointer;
     color: white;
     font-weight: bolder;
-}
+  }
 
-@keyframes colorChange {
-  0% { background-color: rgb(243, 65, 101); }
-  100% { background-color: rgb(86, 181, 213); }
-}
+  @keyframes colorChange {
+    0% {
+      background-color: rgb(243, 65, 101);
+    }
+    100% {
+      background-color: rgb(86, 181, 213);
+    }
+  }
 
-.chat-button-grey {
+  .chat-button-grey {
     background-color: rgb(86, 181, 213);
     animation: colorChange 1s 1;
+  }
 }

@@ -4,7 +4,7 @@ import ChatBubble from '../ChatBubble';
 import CurrentTime from '../CurrentTime';
 import LoadingIcon from '../../../assets/icon/loading';
 import { IChatHistory } from '../../../types/index';
-import './index.css';
+import './index.scss';
 
 interface IProps {
   chatItem: IChatHistory;
@@ -22,7 +22,7 @@ const ChatBotWidget: React.FC<IProps> = (props: IProps) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-  
+
   return (
     <div
       className="chatbotItem"
@@ -32,17 +32,7 @@ const ChatBotWidget: React.FC<IProps> = (props: IProps) => {
       <RobotIcon />
       <ChatBubble
         isChatbot={true}
-        message={
-          isLoading ? (
-            <>
-              <LoadingIcon />
-              <LoadingIcon />
-              <LoadingIcon />
-            </>
-          ) : (
-            chatItem.message
-          )
-        }
+        message={isLoading ? <LoadingIcon /> : chatItem.message}
       ></ChatBubble>
       {chatItem.time && isHovered && (
         <CurrentTime currentTime={chatItem.time} />

@@ -1,0 +1,113 @@
+@keyframes slideInFromBottom {
+  from {
+    transform: translateX(100%); /* 初始位置在底部之外 */
+  }
+  to {
+    transform: translateX(0); /* 最终位置在页面顶部 */
+  }
+}
+
+.chat-window {
+  width: 400px;
+  height: 700px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  margin-bottom: 20px;
+  background-color: whitesmoke;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  animation: slideInFromBottom 0.5s ease forwards; /* 应用关键帧动画，并指定动画时间和时间函数 */
+
+  .chat-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(86, 181, 213);
+    border-radius: 10px 10px 0 0;
+    color: white;
+    padding: 0 15px 0 12px;
+    box-sizing: border-box;
+
+    .chat-title {
+      display: flex;
+      align-items: center;
+
+      .chat-title-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: white;
+        margin-right: 5px;
+      }
+    }
+
+    .chat-close {
+      color: white;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+  }
+
+  .chat-history {
+    width: 100%;
+    height: 480px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: white;
+    overflow: auto;
+  }
+
+  .chat-close-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .message {
+    margin-bottom: 10px;
+  }
+
+  .chat-bottom {
+    .chat-input {
+      width: 380px;
+      height: auto;
+      min-height: 70px;
+      margin-top: 15px;
+      margin-left: 10px;
+      max-height: 200px;
+      box-sizing: border-box;
+      resize: none; /* 禁止手动调整大小 */
+      overflow: auto; /* 隐藏溢出的内容 */
+      padding: 12px 50px 12px 10px;
+      border-color: #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .chat-input:hover,
+    .chat-input:focus {
+      border-color: rgb(86, 181, 213);
+    }
+
+    .chat-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      bottom: 18px;
+      right: 15px;
+      border-radius: 50%;
+      color: #ffffff; /* 设置文字颜色为白色 */
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

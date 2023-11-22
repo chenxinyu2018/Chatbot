@@ -3,9 +3,15 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   font-family: Arial, sans-serif;
   box-sizing: border-box;
+
+  .title {
+    font-size:62px;
+    font-weight: bolder;
+    color: #121b3e;
+  }
 }
 
 body {

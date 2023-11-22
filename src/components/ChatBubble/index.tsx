@@ -1,5 +1,6 @@
 import React from 'react';
-import './index.css';
+import cs from 'classnames';
+import './index.scss';
 
 interface IProps {
   isChatbot: boolean;
@@ -10,7 +11,7 @@ const ChatBubble: React.FC<IProps> = (props: IProps) => {
   const { isChatbot, message } = props;
 
   return (
-    <div className={isChatbot ? 'chat-bubble' : 'chat-bubble is-chatbot'}>
+    <div className={cs('chat-bubble', { 'is-user': !isChatbot })}>
       {message}
     </div>
   );

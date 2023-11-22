@@ -1,6 +1,6 @@
 import React from 'react';
 import { MockMessageList } from '../../mock';
-import './index.css';
+import './index.scss';
 
 interface IProps {
   handleSelectMessage?: Function;

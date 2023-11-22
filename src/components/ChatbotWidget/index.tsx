@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import Dialog from '../ChatBox';
 import HelperIcon from '../../../assets/icon/helper';
 import CloseIcon from '../../../assets/icon/close';
-import './index.css';
+import cs from 'classnames';
+import './index.scss';
 
 const ChatBotWidget: React.FC = () => {
-  const [isChatOpen, setIsChatOpen] = useState(true);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   // Toggle the chat window open or closed
   const toggleChat = () => {
@@ -20,7 +21,7 @@ const ChatBotWidget: React.FC = () => {
       <Dialog isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} />
       {/* Toggle chatbox window open/close button. */}
       <div
-        className={isChatOpen ? 'chat-button-grey chat-button' : 'chat-button'}
+        className={cs('chat-button', { 'chat-button-grey': isChatOpen })}
         onClick={toggleChat}
       >
         {isChatOpen ? <CloseIcon /> : <HelperIcon />}

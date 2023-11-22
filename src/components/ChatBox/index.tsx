@@ -16,7 +16,7 @@ import {
   TITLE,
   INITIAL_MARGIN_TOP,
 } from './config';
-import './index.css';
+import './index.scss';
 
 
 interface IProps {
