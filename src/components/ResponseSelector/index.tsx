@@ -3,9 +3,15 @@ import { MockMessageList } from '../../mock';
 import './index.scss';
 
 interface IProps {
-  handleSelectMessage?: Function;
+  handleSelectMessage?: Function; // Callback function after selecting a common question
 }
 
+/**
+ * Component for selecting common questions
+ *
+ * @param {Object} props - The props passed to the component
+ * @returns {JSX.Element} The rendered component
+ */
 const ResponseSelector: React.FC<IProps> = (props: IProps) => {
   const { handleSelectMessage } = props;
 

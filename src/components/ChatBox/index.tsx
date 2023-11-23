@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import SendBtnIcon from '../../../assets/icon/sendBtn';
-import CloseIcon from '../../../assets/icon/close';
-import ChatbotIcon from '../../../assets/icon/chatbot';
-import NoMessageIcon from '../../../assets/icon/noMessage';
+import {
+  SendBtnIcon,
+  CloseIcon,
+  ChatbotIcon,
+  NoMessageIcon,
+} from '../IconComponents';
 import { mockChatList, MockResponses } from '../../mock';
 import { ChatbotItem, UserItem, ResponseSelector } from '../index';
 import { IChatHistory } from '../../../types/index';
@@ -15,16 +17,21 @@ import {
   TEXTAREA_PLACEHOLDER,
   TITLE,
   INITIAL_MARGIN_TOP,
+  LOADING_TIME,
+  RESPONSE_TIME,
 } from './config';
 import './index.scss';
 
-
 interface IProps {
-  isChatOpen: boolean; // The status of the chat window being open or closed.
-  setIsChatOpen: Function; // The method to set the chat window as open or closed。
+  isChatOpen: boolean; // Indicates whether the chat window is open or closed.
+  setIsChatOpen: Function; // Method to control the visibility of the chat window.
 }
 
-
+/**
+ * Chatbox Component
+ *
+ * @returns {JSX.Element} The rendered chatbox component
+ */
 const ChatBox: React.FC<IProps> = (props: IProps) => {
   const { isChatOpen, setIsChatOpen } = props;
   const [chatHistory, setChatHistory] = useState<IChatHistory[]>(mockChatList);
@@ -35,7 +42,7 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
   const timerRef = useRef<any>(null);
 
   /**
-   * @description Adjust the height of the textarea within a scalable range
+   * @description Adjusts the height of the textarea within a scalable range.
    */
   useEffect(() => {
     const adjustTextareaHeight = () => {
@@ -75,14 +82,16 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
     const lastChat = chatHistory[chatHistory.length - 1];
 
     if (!lastChat.isChatbot) {
+      // Step 1: Display loading state
       setTimeout(() => {
         setIsLoading(true);
         setChatHistory([
           ...chatHistory,
           { isLoading: true, isChatbot: true, message: '' },
         ]);
-      }, 300);
+      }, LOADING_TIME);
 
+      // Step 2: Find the corresponding response from mock data
       setTimeout(() => {
         setIsLoading(false);
         let responseMessage = MockResponses.get(lastChat.message);
@@ -91,14 +100,19 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
         }
         setChatHistory([
           ...chatHistory,
-          { isLoading: false, isChatbot: true, message: responseMessage, time: getCurrentTime() },
+          {
+            isLoading: false,
+            isChatbot: true,
+            message: responseMessage,
+            time: getCurrentTime(),
+          },
         ]);
-      }, 800);
+      }, RESPONSE_TIME);
     }
   }, [chatHistory]);
 
   /**
-   * @description After the chat update, scroll the chat list to the bottom.
+   * @description Scrolls the chat list to the bottom after chat update.
    */
   useEffect(() => {
     if (chatHistoryRef.current) {
@@ -110,16 +124,16 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
   }, [chatHistory]);
 
   /**
-   * @description Handle changes in the input text field
-   * @param e
+   * @description Handles changes in the input text field.
+   * @param {React.ChangeEvent<HTMLTextAreaElement>} e - The event object.
    */
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
   };
 
   /**
-   * @description Handle sending a message in the chat
-   * @param message message
+   * @description Handles sending a message in the chat.
+   * @param {string} message - The message to be sent.
    */
   const handleSendMessage = (message?: string) => {
     let messageText = message || inputText;
@@ -138,8 +152,8 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
   };
 
   /**
-   * @description Handle the enter key press event for a textarea."
-   * @param e event
+   * @description Handles the key press event for the textarea.
+   * @param {React.KeyboardEvent<HTMLTextAreaElement>} e - The event object.
    */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter') {
@@ -149,8 +163,8 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
   };
 
   /**
-   * @description Select a message to send
-   * @param message message
+   * @description Selects a message to send.
+   * @param {string} message - The message to be sent.
    */
   const handleSelectMessage = (message: string) => {
     setInputText(message);

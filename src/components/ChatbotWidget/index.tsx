@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Dialog from '../ChatBox';
-import HelperIcon from '../../../assets/icon/helper';
-import CloseIcon from '../../../assets/icon/close';
+import ChatBox from '../ChatBox';
+import { HelperIcon, CloseIcon } from '../IconComponents';
 import cs from 'classnames';
 import './index.scss';
 
+/**
+ * ChatBot Widget component.
+ *
+ * @returns {JSX.Element} The rendered component
+ */
 const ChatBotWidget: React.FC = () => {
+  // State to manage the open/close state of the chat window
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  // Toggle the chat window open or closed
+  /**
+   * Toggle the chat window open or closed
+   */
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
 
-  // Using ReactDOM.createPortal to render the chatbox outside the document flow
   return ReactDOM.createPortal(
     <div className="chat-container">
-      {/* Chatbox */}
-      <Dialog isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} />
-      {/* Toggle chatbox window open/close button. */}
+      <ChatBox isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} />
+      {/* Toggle button for opening/closing the chatbox */}
       <div
         className={cs('chat-button', { 'chat-button-grey': isChatOpen })}
         onClick={toggleChat}

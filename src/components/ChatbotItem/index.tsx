@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
-import RobotIcon from '../../../assets/icon/robot';
+import { RobotIcon, LoadingIcon } from '../IconComponents';
 import ChatBubble from '../ChatBubble';
 import CurrentTime from '../CurrentTime';
-import LoadingIcon from '../../../assets/icon/loading';
 import { IChatHistory } from '../../../types/index';
 import './index.scss';
 
 interface IProps {
-  chatItem: IChatHistory;
-  isLoading?: boolean;
+  chatItem: IChatHistory; // A single chat record
+  isLoading?: boolean; // Loading flag
 }
 
-const ChatBotWidget: React.FC<IProps> = (props: IProps) => {
+/**
+ * Chatbot Item component.
+ *
+ * @returns {JSX.Element} The rendered component
+ */
+const ChatbotItem: React.FC<IProps> = (props: IProps) => {
   const { chatItem, isLoading } = props;
+  // State to track hover status
   const [isHovered, setIsHovered] = useState(false);
 
+  /**
+   * @description Handle mouse entering event
+   */
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
 
+  /**
+   * @description Handle mouse leaving event
+   */
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
@@ -41,4 +52,4 @@ const ChatBotWidget: React.FC<IProps> = (props: IProps) => {
   );
 };
 
-export default ChatBotWidget;
+export default ChatbotItem;

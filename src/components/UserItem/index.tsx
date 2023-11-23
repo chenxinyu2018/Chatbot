@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import UserIcon from '../../../assets/icon/user';
+import { UserIcon } from '../IconComponents';
 import './index.scss';
 import ChatBubble from '../ChatBubble';
 import { IChatHistory } from '../../../types/index';
 import CurrentTime from '../CurrentTime';
 
 interface IProps {
-  chatItem: IChatHistory;
+  chatItem: IChatHistory; // A single chat record
 }
 
+/**
+ * Component for user's question in the chat list
+ *
+ * @param {IProps} props - The props passed to the component
+ * @returns {JSX.Element} - The rendered component
+ */
 const UserItem: React.FC<IProps> = (props: IProps) => {
   const { chatItem } = props;
   const [isHovered, setIsHovered] = useState(false);

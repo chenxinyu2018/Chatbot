@@ -22,7 +22,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.s[ca]ss$/,
+        test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],

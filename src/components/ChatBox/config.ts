@@ -5,3 +5,5 @@ export const DEBOUNCE_INTERVAL = 100; // The interval time for debounce events
 export const TEXTAREA_PLACEHOLDER = 'Type your message...'; // Placeholder
 export const TITLE = 'Hello!'; // Chat box title
 export const INITIAL_MARGIN_TOP = 15; // Initial top margin
+export const LOADING_TIME = 300; // Loaing time
+export const RESPONSE_TIME = 800; // Delay time for the response

@@ -1,10 +1,10 @@
 /**
- * @description Chat message data type
- * @param isChatbot whether it is a response from chatbot."
- * @param message message
- * @param isLoading The answer is loading.
- * @param time The time when the message is sent.
- */ 
+ * @description Data type for chat history
+ * @param isChatbot Flag indicating whether it's a response from the chatbot
+ * @param message Content of the message
+ * @param isLoading Flag indicating whether the response is currently loading
+ * @param time Time when the message was sent
+ */
 export interface IChatHistory {
   isChatbot: boolean;
   message: string;
