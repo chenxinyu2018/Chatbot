@@ -32,7 +32,6 @@ $ npm run start
 Once started, the service will run at http://localhost:8080.
 
 ## Demo
-Demo Image 
 ![image](./demo.gif)
 
 ## Functionality
