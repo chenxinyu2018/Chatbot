@@ -1,11 +1,11 @@
-import ChatbotIcon from './chatbot';
-import CloseIcon from './close';
-import HelperIcon from './helper';
-import LoadingIcon from './loading';
-import NoMessageIcon from './noMessage';
-import RobotIcon from './robot';
-import SendBtnIcon from './sendBtn';
-import UserIcon from './user';
+import ChatbotIcon from './Chatbot';
+import CloseIcon from './Close';
+import HelperIcon from './Helper';
+import LoadingIcon from './Loading';
+import NoMessageIcon from './NoMessage';
+import RobotIcon from './Robot';
+import SendBtnIcon from './SendBtn';
+import UserIcon from './User';
 
 export {
   ChatbotIcon,
