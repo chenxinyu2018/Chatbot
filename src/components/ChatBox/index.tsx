@@ -73,7 +73,7 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
         textareaRef.current?.removeEventListener('input', adjustTextareaHeight);
       };
     }
-  }, []);
+  }, [textareaRef.current]);
 
   /**
    * @description Generate the response messages.
