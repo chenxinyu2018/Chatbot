@@ -82,9 +82,9 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
     const lastChat = chatHistory[chatHistory.length - 1];
 
     if (!lastChat.isChatbot) {
+      setIsLoading(true);
       // Step 1: Display loading state
       setTimeout(() => {
-        setIsLoading(true);
         setChatHistory([
           ...chatHistory,
           { isLoading: true, isChatbot: true, message: '' },
@@ -137,7 +137,7 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
    */
   const handleSendMessage = (message?: string) => {
     let messageText = message || inputText;
-    if (messageText.trim() !== '') {
+    if (messageText.trim() !== '' && !isLoading) {
       setChatHistory([
         ...chatHistory,
         { isChatbot: false, message: messageText, time: getCurrentTime() },
@@ -167,8 +167,10 @@ const ChatBox: React.FC<IProps> = (props: IProps) => {
    * @param {string} message - The message to be sent.
    */
   const handleSelectMessage = (message: string) => {
-    setInputText(message);
-    handleSendMessage(message);
+    if (!isLoading) {
+      setInputText(message);
+      handleSendMessage(message);
+    }
   };
 
   return (

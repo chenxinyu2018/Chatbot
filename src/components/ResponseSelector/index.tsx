@@ -31,7 +31,6 @@ const ResponseSelector: React.FC<IProps> = (props: IProps) => {
             </span>
           );
         })}
-        <span className="last-item">&nbsp;</span>
       </div>
     </div>
   );

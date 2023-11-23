@@ -9,10 +9,11 @@
 
   .selector-content {
     white-space: nowrap;
-    height: 50px;
+    height: 45px;
     display: flex;
     align-items: flex-start;
     margin-top: 5px;
+    overflow-y: hidden;
 
     .selector-item {
       height: 30px;
@@ -31,9 +32,8 @@
       color: white;
     }
 
-    .last-item {
-      width: 0;
-      height: 10px;
+    .selector-item:last-child {
+      margin-right: 0;
     }
   }
 }
